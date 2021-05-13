@@ -1,0 +1,12 @@
+<h1> Login Here</h1>
+<form action="/reciepe/validate/" method="post">
+    {% csrf_token %}
+username  <input type="text" name="username"><br>
+Password <input type="password" name="password"><br>
+
+<input type="submit" value="login"><br>
+<br>
+</form>
+
+
+<a href="/reciepe/register/">Register</a>

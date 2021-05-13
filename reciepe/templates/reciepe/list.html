@@ -1,0 +1,10 @@
+
+{% for each in reciepe %}
+
+<a href="/reciepe/{{each.id}}/details/">{{each.reciepe_name}}</a> <a href="/reciepe/delete/{{each.id}}/">Delete</a> <br>
+<br>
+
+{% endfor %}
+
+<a href="/reciepe/create/">Create New Reciepe</a><br>
+<a href="/reciepe/logout/">LogOut</a>

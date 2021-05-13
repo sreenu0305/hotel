@@ -1,0 +1,16 @@
+<h1>New Registration</h1>
+<form action="/reciepe/savedetails/" method="post">
+    {% csrf_token %}
+First_Name<input type="text" name="fname"><br>
+Last_Name<input type="text" name="lname"><br>
+UserName<input type="text" name="username"><br>
+EmailId<input type="text" name="email"><br>
+Password<input type="text" name="password"><br>
+
+
+ <input type="submit" value="register"><br>
+
+</form>
+<a href="/reciepe/">Login</a>
+
+

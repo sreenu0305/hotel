@@ -1,0 +1,15 @@
+<h1>Create Reciepe </h1>
+
+<form action="/reciepe/save/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    Name<input type="text" name="name"><br>
+    ingridiants<input type="text" name="ingridiants"><br>
+    process<input type="text" name="process"><br>
+    image<input type="file" name="image"><br>
+    <input type="submit" value="save"><br>
+    <br>
+
+
+</form>
+<a href="/reciepe/list/">back</a>
