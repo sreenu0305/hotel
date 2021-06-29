@@ -1,0 +1,770 @@
+
+
+Q List Comprehension
+
+ans : List comprehesion is used to  create a list in existing list.We can creates list in a single line only
+
+Example:
+
+Based on a list of fruits, you want a new list, containing only the fruits with the letter "a" in the name.
+
+Without list comprehension you will have to write a for statement with a conditional test inside:
+ex:fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = []
+
+for x in fruits:
+  if "a" in x:
+    newlist.append(x)
+
+print(newlist)
+
+
+
+
+newlist = [x for x in fruits if x != "apple"]
+
+newlist = [x.upper() for x in fruits]
+
+
+Set all values in the new list to 'hello':
+newlist = ['hello' for x in fruits]
+
+
+
+Q lambda function
+ans:A lambda function is a small anonymous function.
+
+A lambda function can take any number of arguments, but can only have one expression.
+
+
+Syntax
+lambda arguments : expression
+ex: l = [0,1,2,3,4,5,6,7]
+              lamb = list(map(lamba x:x*2, l))
+
+
+Q  Difference between list comprehension and lambda function ?
+  Ans:  A) List comprehesion is used to  create a list in existing list.We can creates list in a single line only
+          Lambda function: In python lambda is name less function.lambda key word is used to create unnous function
+
+            ex:
+              l = [0,1,2,3,4,5,6,7]
+              lamb = list(map(lamba x:x*2, l))
+              list_comp = [x*2 for x in l]
+
+Q :What is the difference between a generator and a normal function?
+
+ Ans:     A generator can contain more than one yield statement.
+         When the iteration object calls the generator, execution does not start immediately.
+         Additionally, the generator automatically calls methods like iter() and next. Usually next() will iterate these functions
+         When the function gets yield, the function is paused and the control is transferred to the caller.
+         if the function terminates, the generator automatically calls the stop iteration()
+
+
+Q : When to use generator?
+ans:Python provides a generator to create your own iterator function. 
+     A generator is a special type of function which does not return a single value,
+     instead, it returns an iterator object with a sequence of values. In a generator function,
+     a yield statement is used rather than a return statement.
+ ex:             def generetor_object():
+                 
+                     yield 1
+                     yield 2
+                     yield 3
+
+                 gen=generetor_object()
+
+                 next(gen)
+
+
+
+q: what is tuple compression?
+ans:to generate a genarator we go for tuple comprehsion
+    A tuple comprehension is considered to be less fundamental than a list comprehension. 
+      So there is no special syntax dedicated for the same. Yet, if you want a tuple after applying comprehension,
+       it can be achieved by wrapping a tuple around a generator object.
+ ex: gr(i for i in l if i%2==0)
+     gr__next__()
+
+
+Q:	Difference between List Comphersion and Tuple comphersion ?
+A) List comprehesion is an create a list in existing list.We can creates in a single line only
+
+   tuple comprehnsion :to generate a genarator we go for tuple comprehsion
+    A tuple comprehension is considered to be less fundamental than a list comprehension. 
+      So there is no special syntax dedicated for the same. Yet, if you want a tuple after applying comprehension,
+       it can be achieved by wrapping a tuple around a generator object.
+ ex: gr(i for i in l if i%2==0)
+     gr__next__()
+
+Q :	Difference between generator and decorator?
+
+ ans:       Generator:
+             Python Generators are used to create your own iterator function  and 
+                 it will not return a single value but it returns an iterator object and yield statement is used instead of return
+            ex:def generetor_object():
+                   yield 1
+                   yield 2
+                   yield 3
+
+               gen=generetor_object()
+
+           next(gen)
+
+
+         Decorators:
+                  Decorator are used to add some functionalities before and after function without modifying origional function
+         ex:def outer(func):
+    def inner(*args, **kwargs):
+        # add functionalit before calling func
+        print("*" * 50)
+        
+        func(*args, **kwargs)
+          # add functionalit after calling func
+        print ("#" *50)
+    return inner
+    
+   @outer
+   def fun(data):
+       print(data)
+
+
+
+       Built_in functions
+
+
+
+abs() :	Returns the absolute value of a number
+ex: x = abs(-7.25)
+print(x)
+output=7.25
+
+
+all():	Returns True if all items in an iterable object are true
+syntax=all(iterable)
+ex:mylist = [True, True, True]
+x = all(mylist)
+print(x)
+
+o/p = true
+
+
+any():	Returns True if any item in an iterable object is true
+syntax: any(iterable)
+ex =mylist = [False, True, False]
+x = any(mylist)
+print(x)
+o/p :true
+
+
+ascii():	Returns a readable version of an object. Replaces none-ascii characters with escape character
+syntax:ascii(object)
+ex : x = ascii("My name is Ståle")
+print(x)
+o/p : 'My name is St\e5le'
+
+
+bin():	Returns the binary number of  a number
+syntax:x = bin(36)
+print(x)
+o/p : 0b100100
+
+
+bool():	 The bool() function returns the boolean value of a specified object.
+
+The object will always return True, unless:
+
+The object is empty, like [], (), {}
+The object is False
+The object is 0
+The object is None
+
+syntax:x = bool(1)
+print(x)
+o/p : true
+
+
+bytearray():	It can convert objects into bytearray objects, or create empty bytearray object of the specified size.
+Syntax:bytearray(x, encoding, error)
+ex : x = bytearray(4)
+print(x)
+ o/p :bytearray(b'\x00\x00\x00\x00')
+
+
+bytes():	Returns a bytes object (It can convert objects into bytes objects, or create empty bytes object of the specified size.
+                The difference between bytes() and bytearray() is that bytes() returns an object that cannot be modified, and bytearray()
+                 returns an object that can be modified.)
+syntax:bytes(x, encoding, error)
+x = bytes(4)
+print(x)
+o/p : b'\x00\x00\x00\x00'
+
+
+callable():	Returns True if the specified object is callable, otherwise False
+syntax:callable(object)
+ex:def x():
+  a = 5
+print(callable(x))
+o/p: true
+
+
+chr():	Returns a character from the specified Unicode code.
+syntax:chr(number)
+ex:x=char(97)
+print(x)
+o/p:a
+
+
+classmethod():	Converts a method into a class method
+
+
+compile():	Returns the specified source as an object, ready to be executed
+syntax:compile(source, filename, mode, flag, dont_inherit, optimize)
+ex:x = compile('print(55)', 'test', 'eval')
+exec(x)
+o/p : 55
+
+
+complex():Returns a complex number
+syntax:complex(real, imaginary)
+ex: x = complex(3, 5)
+print(x)
+o/p : (3+5j)
+real:	Required. A number representing the real part of the complex number. Default 0. The real number can also be a String, like this '3+5j', when this is the case, the second parameter should be omitted.
+imaginary:	Optional. A number representing the imaginary part of the complex number. Default 0.
+
+
+
+delattr():	Deletes the specified attribute (property or method) from the specified object
+syntax:delattr(object, attribute)
+ex:class Person:
+  name = "John"
+  age = 36
+  country = "Norway"
+delattr(Person, 'age')
+
+
+
+dict():	Returns a dictionary (Array)
+syntax: dict(keyword arguments)
+ex:x = dict(name = "John", age = 36, country = "Norway")
+print(x)
+o/p : {'name': 'John', 'age': 36, 'country': 'Norway'}
+
+
+
+dir():	he dir() function returns all properties and methods of the specified object, without the values.
+        This function will return all the properties and methods, even built-in properties which are default for all object.
+syntax:dir(object)
+ex:class Person:
+  name = "John"
+  age = 36
+  country = "Norway"
+print(dir(Person))
+o/p:['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', 
+     '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', 
+     '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 
+      'age', 'country', 'name']
+
+
+
+divmod():	Returns the quotient and the remainder when argument1 is divided by argument2
+syntax:divmod(dividend, divisor)
+ex:x = divmod(5, 2)
+print(x)
+o/p:(2,1)
+
+
+enumerate():	The enumerate() function takes a collection (e.g. a tuple) and returns it as an enumerate object.
+                The enumerate() function adds a counter as the key of the enumerate object.
+syntax: enumerate(iterable, start)
+ex:x = ('apple', 'banana', 'cherry')
+y = enumerate(x)
+print(list(y))
+o/p:[(0, 'apple'), (1, 'banana'), (2, 'cherry')]
+
+
+
+eval():	The eval() function evaluates the specified expression, if the expression is a legal Python statement, it will be executed.
+syntax:eval(expression, globals, locals)
+ex:x = 'print(55)'
+eval(x)
+o/p : 55
+
+
+
+exec():	The exec() function executes the specified Python code.
+        The exec() function accepts large blocks of code, unlike the eval() function which only accepts a single expression
+syntax:exec(object, globals, locals)
+ex:x = 'name = "John"\nprint(name)'
+exec(x)
+o/p:john
+
+
+
+filter(): if you want to filter the input based on the condition we go for filter
+                to test if the item is accepted or not.
+syntax:filter(function, iterable)
+ex:ages = [5, 12, 17, 18, 24, 32]
+
+def myFunc(x):
+  if x < 18:
+    return False
+  else:
+    return True
+
+adults = filter(myFunc, ages)
+
+for x in adults:
+  print(x)
+ 
+o/p : 18
+      24
+      32
+
+
+
+float():	Returns a floating point number
+syntax:float(value)
+ex:x = float(3)
+print(x)
+o/p:3.0
+
+
+format():	Formats a specified value
+syntax:format(value, format)
+ex:x = format(0.5, '%')
+print(x)
+o/p:50.000000%
+Legal values:
+'<' - Left aligns the result (within the available space)
+'>' - Right aligns the result (within the available space)
+'^' - Center aligns the result (within the available space)
+'=' - Places the sign to the left most position
+'+' - Use a plus sign to indicate if the result is positive or negative
+'-' - Use a minus sign for negative values only
+' ' - Use a leading space for positive numbers
+',' - Use a comma as a thousand separator
+'_' - Use a underscore as a thousand separator
+'b' - Binary format
+'c' - Converts the value into the corresponding unicode character
+'d' - Decimal format
+'e' - Scientific format, with a lower case e
+'E' - Scientific format, with an upper case E
+'f' - Fix point number format
+'F' - Fix point number format, upper case
+'g' - General format
+'G' - General format (using a upper case E for scientific notations)
+'o' - Octal format
+'x' - Hex format, lower case
+'X' - Hex format, upper case
+'n' - Number format
+'%' - Percentage format
+
+
+
+frozenset():	Returns a frozenset object
+syntax:frozenset(iterable)
+ex:mylist = ['apple', 'banana', 'cherry']
+x = frozenset(mylist)
+print(x)
+o/p':frozenset({'apple', 'banana', 'cherry'})
+
+
+
+
+getattr():	Returns the value of the specified attribute (property or method)
+syntax:getattr(object, attribute, default)
+ex:class Person:
+  name = "John"
+  age = 36
+  country = "Norway"
+
+x = getattr(Person, 'age')
+print(x)
+o/p:36
+
+
+
+globals():	The globals() function returns the global symbol table as a dictionary.
+                A symbol table contains necessary information about the current program
+syntax:globals()
+ex:x = globals()
+print(x)
+o/p:{'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__':
+     <_frozen_importlib_external.SourceFileLoader object at 0x02A8C2D0>, '__spec__': None, '__annotations__': {}, '__builtins__':
+    <module 'builtins' (built-in)>, '__file__': 'demo_ref_globals.py', '__cached__': None, 'x'_ {...}}
+
+
+
+
+hasattr():  The hasattr() function returns True if the specified object has the specified attribute, otherwise False.
+syntax:hasattr(object, attribute)
+ex:class Person:
+  name = "John"
+  age = 36
+  country = "Norway"
+
+x = hasattr(Person, 'age')
+print(x)
+o/p:true
+
+
+
+hash():	Returns the hash value of a specified object
+
+
+help(): 	Executes the built-in help system
+
+
+hex():	Converts a number into a hexadecimal value
+syntax:hex(number)
+ex:x = hex(255)
+   print(x)
+o/p:0xff
+
+
+
+id():	Returns the id of an object
+syntax:id(object)
+ex:x = ('apple', 'banana', 'cherry')
+y = id(x)
+print(y)
+o/p:90495723
+
+
+
+input():	Allowing user input
+syntax:input(prompt)
+print("Enter your name:")
+x = input()
+print("Hello, " + x)
+
+
+
+int():	Returns an integer number
+syntax:int(value, base)
+ex:x = int(3.5)
+print(x)
+o/p: 3
+
+
+isinstance(): The isinstance() function returns True if the specified object is of the specified type, otherwise False.
+Syntax : isinstance(object, type)
+Eg., check if the number 5 is an integer
+	x = isinstance(5, int)
+print(x)
+o/p : True
+eg., check if “hello” is one of the types described..
+x = isinstance("Hello", (str, float, int, str, list, dict,tuple))
+print(x)
+o/p: True
+
+
+
+issubclass(): The issubclass() function returns True if the specified object is a subclass of the specified object, otherwise False.
+Syntax : issubclass(object, subclass)
+Eg., check if the class myObj is a subclass of myAge
+
+class myAge:
+  age = 36
+class myObj(myAge):
+  name = "John"
+  age = myAge
+x = issubclass(myObj, myAge)
+print(x)
+o/p: True
+
+
+
+iter(): The iter() function returns an iterator object.
+Syntax : iter(object, sentinel)
+Eg., create an iterate  object, and print the terms
+	x = iter(["apple", "banana", "cherry"])
+print(next(x))
+print(next(x))
+print(next(x))
+o/p: apple
+	banana
+	cherry
+
+
+
+len() : The len() function returns the number of items in an object. 
+Syntax : len(object)
+Eg., mylist = ["apple", "orange", "cherry"]
+	x = len(mylist)
+	print(x)
+o/p: 3
+
+
+
+
+list() :  The list() function creates a list object. A list object is a collection which is ordered and changeable. 
+Syntax : list(iterable)
+Eg., create a list
+	x = list(('apple', 'banana', 'cherry'))
+	print(x)
+o/p: [‘apple’, ‘banana’, ‘cherry’]
+
+
+
+
+locals():  The locals() function returns the local symbol table as a dictionary. The locals() function returns the local symbol table as a dictionary.
+Syntax : locals()
+
+
+Map(): if you are planning to apply a functionality throughout an iterable then you go for map
+Syntax : map(function, iterables)
+Eg., Calculate the length of each word in the tuple
+	def myfunc(a):
+ 	  return len(a)
+	x = map(myfunc, ('apple', 'banana', 'cherry'))
+	print(list(x))
+
+
+
+max(): The max() function returns the item with the highest value, or the item with the highest value in an iterable. If the values are strings, an alphabetically comparison is done.
+Syntax : max(n1, n2, n3, ...)
+          (or)
+	max(iterable)
+eg., return the largest value
+x = max(5, 10)
+print(x)
+o/p:10
+
+
+
+min() : The min() function returns the item with the lowest value, or the item with the lowest value in an iterable. If the values are strings, an alphabetically comparison is done.
+Syntax : min(n1, n2, n3, ...)
+	(Or)
+	min(iterable)
+eg., Return the item in a tuple with the lowest value
+	a = (1, 5, 3, 9)
+x = min(a)
+print(x)
+o/p: 1
+
+
+next(): The next() function returns the next item in an iterator. You can add a default return value, to return if the iterable has reached to its end.
+Syntax : next(iterable, default)
+Eg., create an iterator and print the items onebyone
+mylist = iter(["sreenu", "sai", "rajesh"])
+x = next(mylist)
+print(x)
+x = next(mylist)
+print(x)
+x = next(mylist)
+print(x)
+o/p; sreenu
+       sai
+      rajesh
+
+
+
+Object():  The object() function returns an empty object. You cannot add new properties or methods to this object. This object is the base for all classes, it holds the built-in properties and methods which are default for all classes.
+Syntax : object()
+
+
+Oct(): The oct() function converts an integer into an octal string. Octal strings in Python are prefixed with 0o. 
+Syntax : oct(int)
+Eg., convert 12 into octal
+x = oct(12)
+print(x)
+o/p: 0o14
+
+
+open(): The open() function opens a file, and returns it as a file object.
+Syntax : open(file, mode)
+Eg., open a file and print the content
+f = open("demofile.txt", "r")
+print(f.read())
+o/p: Hello! Welcome to demofile.txt
+
+
+
+ord() : The ord() function returns the number representing the unicode code of a specified character. 
+Syntax: ord(character)
+Eg., Return the integer that represents the character “h”
+x = ord("h")
+print(x)
+o/p: 104
+
+
+
+pow(): The pow() function returns the value of x to the power of y (xy). If a third parameter is present, it returns x to the power of y, modulus z. 
+syntax : pow(x, y, z)
+eg., Return the value of 4 to the power of 3
+x = pow(4, 3)
+print(x) 
+o/p: 64
+
+
+
+print():  The print() function prints the specified message to the screen. The message can be a string, or any other object, the object will be converted into a string before written to the screen.
+Syntax: print(object(s), sep=separator, end=end, file=file, flush=flush)
+Eg., print("Hello World")
+o/p: Hello World
+
+
+
+range(): The range() function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and stops before a specified number. 
+Syntax: range(start, stop, step)
+Eg., x = range(6)
+for n in x:
+     print(n)
+o/p: 0
+	1
+	2
+3
+4
+5
+
+
+
+Reversed(): The reversed() function returns a reversed iterator object
+Syntax: reversed(sequence)
+Eg., Reverse the sequence
+alph = ["a", "b", "c", "d"]
+ralph = reversed(alph)
+for x in ralph:
+  print(x)
+o/p: d
+c
+b
+a
+
+
+round(): The round() function returns a floating point number that is a rounded version of the specified number, with the specified number of decimals. The default number of decimals is 0, meaning that the function will return the nearest integer.
+Syntax: round(number, digits)
+Eg., round off to two decimals
+x = round(5.76543, 2)
+print(x)
+o/p: 5.77
+
+
+set() :  The set() function creates a set object. The items in a set list are unordered, so it will appear in random order. 
+Syntax : set(iterable)
+Eg., Create a set
+x = set(("apple", "banana", "cherry"))
+print(x)
+o/p: {‘banana’, ‘cherry’, ‘apple’}
+
+
+
+
+setattr():  The setattr() function sets the value of the specified attribute of the specified object. 
+Syntax: setattr(object, attribute, value)
+Eg., change the value of age of the person object
+class Person:
+ name = "John"
+  age = 36
+  country = "Norway"
+setattr(Person, 'age', 40)
+x = getattr(Person, 'age')
+print(x)
+o/p: 40
+
+
+
+slice(): The slice() function returns a slice object. A slice object is used to specify how to slice a sequence. You can specify where to start the slicing, and where to end. You can also specify the step, which allows you to e.g. slice only every other item. 
+Syntax: slice(start, end, step)
+Eg., create a tuple and slice a object.
+a = ("a", "b", "c", "d", "e", "f", "g", "h")
+x = slice(2)
+print(a[x])
+o/p: (‘a’, ‘b’)
+
+
+
+
+sorted(): The sorted() function returns a sorted list of the specified iterable object. You can specify ascending or descending order. Strings are sorted alphabetically, and numbers are sorted numerically. 
+Syntax: sorted(iterable, key=key, reverse=reverse)
+Eg., sort a tuple
+a = ("b", "g", "a", "d", "f", "c", "h", "e")
+x = sorted(a)
+print(x)
+o/p: [‘a’, ‘b’, ‘c’, ‘d’, ‘e’ , ‘f’, ‘g’, ‘h’]
+
+
+
+
+str(): The str() function converts the specified value into a string.
+Syntax: str(object, encoding=encoding, errors=errors)
+Eg., Convert a string into integer
+x = int("12")
+print(x)
+o/p: 12
+
+
+
+
+sum(): The sum() function returns a number, the sum of all items in an iterable. 
+Syntax: sum(iterable, start)
+Eg., add all elements in a tuple and return the result
+	a = (1, 2, 3, 4, 5)
+x = sum(a)
+print(x)
+o/p: 15
+
+
+
+
+super(): The super() function is used to give access to methods and properties of a parent or sibling class. 
+ Syntax: super()
+Eg., create a class that inherit all the methods and the properties from another class
+class Parent:
+  def __init__(self, txt):
+    self.message = txt
+  def printmessage(self):
+    print(self.message)
+class Child(Parent):
+  def __init__(self, txt):
+    super().__init__(txt)
+x = Child("Hello, and welcome!")
+x.printmessage()
+o/p: Hello, and welcome!
+
+
+
+Tuple(): The tuple() function creates a tuple object.
+Syntax: tuple(iterable)
+Eg., create a tuple
+x = tuple(("ant", "bat", "cat"))
+print(x)
+(‘ant’, ‘bat’, ‘cat’)
+
+
+
+Type():  The type() function returns the type of the specified object
+Syntax: type(object, bases, dict)
+Eg., Return the types of objects 
+a = ('apple', 'banana', 'cherry')
+b = "Hello World"
+c = 33
+x = type(a)
+y = type(b)
+z = type(c)
+print(x)
+print(y)
+print(z)
+o/p: <class ‘tuple’>
+	<class ‘str’>
+	<class ‘int’>
+
+
+
+Vars(): The vars() function returns the __dic__ attribute of an object. The __dict__ attribute is a dictionary containing the object's changeable attributes. 
+Syntax: vars(object)
+
+
+Zip():  The zip() function returns a zip object, which is an iterator of tuples where the first item in each passed iterator is paired together, and then the second item in each passed iterator are paired together etc.
+Syntax: zip(iterator1, iterator2, iterator3 ...)
+Eg., join two tuples together
+a = ("John", "Charles", "Mike")
+b = ("Jenny", "Christy", "Monica")
+x = zip(a, b)
+print(tuple(x))
+o/p: ((‘John’, ‘Jenny’), (‘Charles’, ‘christy’), (‘mike’, ‘monica’))
+
+
